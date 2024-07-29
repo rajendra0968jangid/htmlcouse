@@ -1,0 +1,146 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const textToSpeak = "Welcome users"
+        const utterance = new SpeechSynthesisUtterance(textToSpeak)
+        window.speechSynthesis.speak(utterance);
+    </script>
+</body>
+
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Capture</title>
+</head>
+
+<body>
+    <button onclick="startRecognition()">Start Recognition</button>
+    <button onclick="stopRecognition()">Stop Recognition</button>
+    <p id="result"></p>
+
+    <script>
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+            const recognition = new SpeechRecognition();
+
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                console.log('Speech recognition started');
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                console.log('Transcript:', transcript);
+                document.getElementById('result').textContent = transcript;
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Error occurred in recognition:', event.error);
+            };
+
+            recognition.onend = () => {
+                console.log('Speech recognition ended');
+            };
+
+            window.startRecognition = function () {
+                recognition.start();
+            };
+
+            window.stopRecognition = function () {
+                recognition.stop();
+            };
+        } else {
+            alert('Your browser does not support the Web Speech API.');
+        }
+    </script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Interaction</title>
+</head>
+
+<body>
+    <button onclick="startRecognition()">Start Recognition</button>
+    <p id="result"></p>
+
+    <script>
+        if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+            const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+            const recognition = new SpeechRecognition();
+
+            recognition.continuous = false;
+            recognition.interimResults = false;
+            recognition.lang = 'en-US';
+
+            recognition.onstart = () => {
+                console.log('Speech recognition started');
+            };
+
+            recognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript;
+                console.log('Transcript:', transcript);
+                document.getElementById('result').textContent = transcript;
+                handleResponse(transcript);
+            };
+
+            recognition.onerror = (event) => {
+                console.error('Error occurred in recognition:', event.error);
+            };
+
+            recognition.onend = () => {
+                console.log('Speech recognition ended');
+            };
+
+            window.startRecognition = function () {
+                recognition.start();
+            };
+        } else {
+            alert('Your browser does not support the Web Speech API.');
+        }
+
+        function handleResponse(transcript) {
+            let response = '';
+
+            if (transcript.toLowerCase().includes('hello')) {
+                response = 'Hello! How can I help you?';
+            } else if (transcript.toLowerCase().includes('how are you')) {
+                response = 'I am a computer program, so I do not have feelings, but thank you for asking!';
+            } else {
+                response = 'I am sorry, I did not understand that.';
+            }
+
+            speakResponse(response);
+        }
+
+        function speakResponse(response) {
+            const utterance = new SpeechSynthesisUtterance(response);
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+</body>
+
+</html>
