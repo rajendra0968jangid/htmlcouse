@@ -46,18 +46,45 @@
 // console.log("fun",fun)
 
 
-function rajendra5(){
-    try{
-        return "hello"
-    }
-    catch(error){
-        return {"errormessage":error.message}
-    }
-}
-let fun1 = rajendra5()
-if(fun1["errormessage"]){
-    console.log("code mistake")
-}
-else{
-    console.log(fun1)
-}
+// function rajendra5(){
+//     try{
+//         return "hello"
+//     }
+//     catch(error){
+//         return {"errormessage":error.message}
+//     }
+// }
+// let fun1 = rajendra5()
+// if(fun1["errormessage"]){
+//     console.log("code mistake")
+// }
+// else{
+//     console.log(fun1)
+// }
+
+
+
+// let rajendra6 =  (a)=>{
+//     return a
+// }
+// let obj = {name:'helo',age:24}
+// console.log(rajendra6(obj))
+
+
+// let rajendra7 = ()=>{
+//     console.log(obj)
+// }
+// let obj = {name:'helo',age:24}
+// rajendra7()
+
+
+// let rajendra8 = ()=>{
+//     return "function number 8"
+// }
+
+// let rajendra7 = ()=>{
+//     //
+// }
+
+// let fun4 = rajendra7()
+// console.log(fun4)
