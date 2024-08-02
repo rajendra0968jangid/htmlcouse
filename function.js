@@ -88,3 +88,27 @@
 
 // let fun4 = rajendra7()
 // console.log(fun4)
+
+function check(a, ...b) {
+
+    switch (a) {
+        case "min":
+            //code
+            break;
+        case 'max':
+            //max
+            break;
+        case "avg":
+            //avg
+            break;
+        default:
+            console.log('please check your case')
+    }
+}
+
+check("max", 1, 2, 4, 67, 4, 3, 67, 89, 8765)
+check("min", 1, 2, 4, 67, 4, 3, 67, 89, 8765)
+check("avg", 1, 2, 4, 67, 4, 3, 67, 89, 8765)
+check("other", 1, 2, 4, 67, 4, 3, 67, 89, 8765)
+
+

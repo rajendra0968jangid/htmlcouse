@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 class="one"></h2>
+    <h2 class="one"></h2>
+    <img src="" alt="" class="one" width="50px">
+    <script>
+        const cricket = async () => {
+            try {
+                const response = await fetch("https://api-v1.com/v1/sV3.php?key=NZQ")
+                const jsonResponse = await response.json()
+                //
+                document.getElementsByClassName("one")[0].innerText = jsonResponse["j"]
+                document.getElementsByClassName("one")[1].innerText = jsonResponse["A"]
+                document.getElementsByClassName("one")[2].src = `https://cricketvectors.akamaized.net/players/org/${jsonResponse["b"]}.png?impolicy=default_web`
+            } catch (err) {
+                console.log(err.message)
+            }
+        }
+        setInterval(() => {
+            cricket()
+        }, 1000)
+
+        //
+        // const helo = ()=>{
+        //     console.log('hello')
+        // }
+        // setInterval // -> repeat 1,5, 
+        // setTimeout // -> no repeat ,one run hoga
+
+        // setTimeout(()=>{
+        //     helo()
+        // },8000)
+        // setInterval(() => {
+        //     helo()
+        // }, 8000);
+
+
+    </script>
+</body>
+
+</html>
