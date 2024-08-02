@@ -22,8 +22,9 @@
 
 <body>
     <div class="main">
-
     </div>
+    <button onclick="visible()">visible</button>
+    <button onclick="hide()">hide</button>
     <script>
         const fun = async () => {
             const response = await fetch("https://api-v1.com/v1/liveMatches2.php")
@@ -50,6 +51,12 @@
             //loop
         }
         fun()
+        const visible = () => {
+            document.getElementsByClassName("main")[0].style.display = "block"
+        }
+        const hide = () => {
+            document.getElementsByClassName("main")[0].style.display = "none"
+        }
     </script>
 </body>
 
