@@ -66,3 +66,9 @@ const ipApi = async () => {
 }
 
 // ipApi()
+
+let obj = {a:{name:'helo','my age':24}}
+
+console.log(obj["a"]["age"]);
+console.log(obj.a.age);
+

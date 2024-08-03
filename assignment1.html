@@ -18,18 +18,25 @@
             padding: 10px;
         }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
     <div class="main">
     </div>
-    <button onclick="visible()">visible</button>
-    <button onclick="hide()">hide</button>
+    <button type="button"
+        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        onclick="visible()">visible</button>
+    <button type="button"
+        class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        onclick="hide()">hide</button>
+
     <script>
         const fun = async () => {
             const response = await fetch("https://api-v1.com/v1/liveMatches2.php")
             const jsonresponse = await response.json()
             let arr = Object.values(jsonresponse);
+            console.log(arr)
             for (let i = 0; i < arr.length; i++) {
                 //loop
                 let htmlcode = `<h2 style="font-family: Arial, Helvetica, sans-serif;">IND vs SL 2024</h2>
@@ -52,10 +59,10 @@
         }
         fun()
         const visible = () => {
-            document.getElementsByClassName("main")[0].style.display = "block"
+            document.getElementsByClassName("main")[0].style.backgroundColor = "blue"
         }
         const hide = () => {
-            document.getElementsByClassName("main")[0].style.display = "none"
+            document.getElementsByClassName("main")[0].style.backgroundColor = "red"
         }
     </script>
 </body>
